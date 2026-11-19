@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Trophy Guide — GTA VI PS5 Trophy Guide & Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">V</div>
+    <div>
+      <h1>VICE TROPHY GUIDE</h1>
+      <p class="sub">Grand Theft Auto VI · PlayStation 5 · all 55 trophies, guided &amp; tracked — fully offline</p>
+    </div>
+  </div>
+  <div class="progress-box">
+    <div class="progress-line"><strong id="progress-count">0/55</strong> trophies · <span id="progress-points">0</span> of <span id="progress-total">0</span> PSN points</div>
+    <div class="bar"><div id="progress-bar"></div></div>
+    <div class="progress-line muted" id="progress-pct">0% to the platinum</div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button data-view="trophies" class="tab active">Trophies</button>
+  <button data-view="roadmap" class="tab">Roadmap</button>
+  <button data-view="about" class="tab">About &amp; sources</button>
+</nav>
+
+<main>
+  <section id="view-trophies">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search name or description…" aria-label="Search trophies">
+      <div class="chips" id="kind-chips">
+        <button data-kind="all" class="chip active">All</button>
+        <button data-kind="story" class="chip">Story</button>
+        <button data-kind="missable" class="chip">Missable</button>
+        <button data-kind="collectibles" class="chip">Collectibles</button>
+        <button data-kind="activities" class="chip">Activities</button>
+        <button data-kind="online" class="chip">Online</button>
+      </div>
+      <select id="grade-filter" aria-label="Filter by grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <label class="toggle"><input type="checkbox" id="hide-earned"> Hide earned</label>
+      <label class="toggle"><input type="checkbox" id="spoiler-toggle"> Spoiler shield</label>
+      <button id="export-btn" class="action">Export progress</button>
+      <label class="action file-label">Import progress<input type="file" id="import-file" accept="application/json" hidden></label>
+    </div>
+    <p class="hint">Click a trophy to open its guide. Progress is saved in this browser automatically.</p>
+    <div id="trophy-list"></div>
+    <p id="empty-note" class="muted" hidden>No trophies match the current filters.</p>
+  </section>
+
+  <section id="view-roadmap" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">Five stages, in order. The order exists for one reason: the missables. Everything tied to a named mission, a stranger finale or a one-time scene is front-loaded into Stage 1, while the story is still open and your chapter saves are fresh. Collectibles and activities can almost all be done in free roam afterwards, and the money trophies are fastest once your income is established — so they come last, just before the platinum itself.</p>
+    <div id="roadmap-list"></div>
+  </section>
+
+  <section id="view-about" hidden>
+    <h2>About &amp; sources</h2>
+    <p>Vice Trophy Guide is an offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI. Every trophy is shown with its official name, official description and grade. Every guide is written in our own words for this app — no guide text is copied from any other guide — and every guide cites its sources beside it. The app fetches nothing at run time: your progress lives only in this browser (localStorage), and you can export it to a file and import it back at any time.</p>
+    <h3>Sources</h3>
+    <ul>
+      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" rel="noopener">Exophase — GTA VI trophy page</a> — published the official trophy names, descriptions and grades.</li>
+      <li><a href="https://psnprofiles.com/trophies/grand-theft-auto-vi" rel="noopener">PSNProfiles — GTA VI trophy list</a> — published the official trophy names, descriptions, grades and counts.</li>
+      <li>PlayStation — official trophy list — the trophy list on PlayStation itself, the primary source for names, descriptions and grades.</li>
+    </ul>
+    <h3>How the missable flags were derived</h3>
+    <p>Missable flags are derived from the official descriptions only — nothing else. The rule used throughout: chapter milestones (Complete Chapter 1, and so on) are <em>not</em> flagged, because they trigger automatically as the story advances and cannot be skipped. A trophy <em>is</em> flagged missable when its official description names a specific mission (for example Breakfast Run or The Cartel Heist), a stranger's final mission, a unique target (the unique animal hunted for Bret), or a one-time scene or choice (an unscheduled departure at VCIA, a cocktail on Ocean Beach, choices made). Where a description is deliberately vague, the guide says so plainly and gives a method — keep rotating saves, engage with the content when it is offered — instead of inventing a location or step no source supports. Counts shown in guides come from the official descriptions themselves; where a number appears only in the listing data (for example 42 Shooting Range challenges), the guide attributes it to the listing data.</p>
+    <h3>Spoiler shield</h3>
+    <p>Turn on the Spoiler shield in the Trophies view and every unearned story trophy shows as “Hidden trophy”, with its name and description masked until you earn it. Story and named-mission trophies are also marked hidden in the data, matching how PlayStation hides plot-revealing trophies.</p>
+    <h3>Points</h3>
+    <p>PSN points used in the header: platinum 300, gold 90, silver 30, bronze 15. With 1 platinum, 2 gold, 6 silver and 46 bronze trophies, the full list is worth 1,350 points.</p>
+  </section>
+</main>
+
+<footer>Vice Trophy Guide — an unofficial, offline fan guide. Not affiliated with Rockstar Games or PlayStation. No game artwork is used.</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
