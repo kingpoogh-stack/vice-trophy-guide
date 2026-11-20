@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildDossier } from './vendor/makefun-frontend.ts';
 
@@ -14,3 +14,14 @@ const dossier = buildDossier(outDir, {
   app_max_bytes: 50331648,
 });
 writeFileSync(join(outDir, 'dossier.json'), dossier);
+function countFiles(dir: string): number {
+  let n = 0;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) n += countFiles(join(dir, entry.name));
+    else if (entry.isFile()) n += 1;
+  }
+  return n;
+}
+const appCount = countFiles(join(outDir, 'app'));
+const shotCount = countFiles(join(outDir, 'screenshots'));
+console.log('verified app files: ' + appCount + ', screenshot files: ' + shotCount);
