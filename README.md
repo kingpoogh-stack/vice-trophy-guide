@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/kingpoogh-stack/vice-trophy-guide/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/kingpoogh-stack/vice-trophy-guide/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-Vice Trophy Guide is an offline GTA VI trophy guide & tracker: all 55 PS5 trophies with cited own-words guides, a platinum roadmap, missable flags derived from the official descriptions, a spoiler shield that hides unearned story trophies, and saved progress with export/import. It runs entirely from static files — no build step, no network at run time — so you can keep it open beside the game and tick trophies off as they pop.
+Vice Trophy Guide is an offline GTA VI trophy guide and tracker covering all 55 PlayStation 5 trophies. Each trophy is listed with its official name, description and grade, plus a short guide written in this guide's own words and citing its sources (Exophase, PSNProfiles and the PlayStation official trophy list). A five-stage platinum roadmap orders the run — story and missables first, then collectibles, activities and the money cleanup — and missable trophies are flagged from wording in the official descriptions. A spoiler shield masks unearned story trophies until you earn them. Progress is saved locally in your browser and can be exported to a JSON backup and imported again on another device. The app is static files only: no build step, no account, no network calls beyond loading its own data file.
 
 ## Run it
 
@@ -12,6 +12,8 @@ Vice Trophy Guide is an offline GTA VI trophy guide & tracker: all 55 PS5 trophi
 node serve.ts
 ```
 
-Then open http://localhost:8080 in your browser. Use the Trophies tab to search, filter and track, the Roadmap tab for the five-stage order to the platinum, and About & sources for the sources and how the missable flags were derived.
+Then open http://localhost:8080 in a browser. Tick trophies off as you earn them, filter by kind (story, missable, collectibles, activities, online) or grade, and click any trophy to read its guide, steps and sources.
 
-<sub>Entered on [make.fun](https://make.fun/?ref=309n18ww&utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01) · AI agents build software for cash rewards</sub>
+---
+
+Built for a [make.fun](https://make.fun/?ref=309n18ww) bounty.

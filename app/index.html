@@ -3,42 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vice Trophy Guide — GTA VI PS5 Trophy Guide & Tracker</title>
+<title>Vice Trophy Guide — GTA VI Trophy Tracker &amp; Roadmap</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="brand">
-    <div class="logo" aria-hidden="true">V</div>
-    <div>
-      <h1>VICE TROPHY GUIDE</h1>
-      <p class="sub">Grand Theft Auto VI · PlayStation 5 · all 55 trophies, guided &amp; tracked — fully offline</p>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">V</div>
+      <div>
+        <h1>Vice Trophy Guide</h1>
+        <p class="tagline">Grand Theft Auto VI &middot; PlayStation 5 &middot; all 55 trophies, tracked</p>
+      </div>
+    </div>
+    <div class="progress-block" aria-label="Trophy progress">
+      <div class="progress-top"><span id="progress-count">0/55</span><span id="progress-pct">0%</span></div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <p class="progress-points"><span id="progress-points">0</span> / <span id="progress-total">0</span> trophy points earned</p>
     </div>
   </div>
-  <div class="progress-box">
-    <div class="progress-line"><strong id="progress-count">0/55</strong> trophies · <span id="progress-points">0</span> of <span id="progress-total">0</span> PSN points</div>
-    <div class="bar"><div id="progress-bar"></div></div>
-    <div class="progress-line muted" id="progress-pct">0% to the platinum</div>
-  </div>
+  <nav class="tabs" aria-label="Views">
+    <button type="button" class="tab active" data-view="trophies">Trophies</button>
+    <button type="button" class="tab" data-view="roadmap">Roadmap</button>
+    <button type="button" class="tab" data-view="about">About</button>
+  </nav>
 </header>
-
-<nav class="tabs" role="tablist">
-  <button data-view="trophies" class="tab active">Trophies</button>
-  <button data-view="roadmap" class="tab">Roadmap</button>
-  <button data-view="about" class="tab">About &amp; sources</button>
-</nav>
-
 <main>
   <section id="view-trophies">
     <div class="controls">
-      <input id="search" type="search" placeholder="Search name or description…" aria-label="Search trophies">
-      <div class="chips" id="kind-chips">
-        <button data-kind="all" class="chip active">All</button>
-        <button data-kind="story" class="chip">Story</button>
-        <button data-kind="missable" class="chip">Missable</button>
-        <button data-kind="collectibles" class="chip">Collectibles</button>
-        <button data-kind="activities" class="chip">Activities</button>
-        <button data-kind="online" class="chip">Online</button>
+      <input type="search" id="search" placeholder="Search trophies by name or description..." aria-label="Search trophies">
+      <div id="kind-chips" class="chips" role="group" aria-label="Filter by kind">
+        <button type="button" class="chip active" data-kind="all">All</button>
+        <button type="button" class="chip" data-kind="story">Story</button>
+        <button type="button" class="chip" data-kind="missable">Missable</button>
+        <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+        <button type="button" class="chip" data-kind="activities">Activities</button>
+        <button type="button" class="chip" data-kind="online">Online</button>
       </div>
       <select id="grade-filter" aria-label="Filter by grade">
         <option value="all">All grades</option>
@@ -47,41 +47,30 @@
         <option value="silver">Silver</option>
         <option value="bronze">Bronze</option>
       </select>
-      <label class="toggle"><input type="checkbox" id="hide-earned"> Hide earned</label>
-      <label class="toggle"><input type="checkbox" id="spoiler-toggle"> Spoiler shield</label>
-      <button id="export-btn" class="action">Export progress</button>
-      <label class="action file-label">Import progress<input type="file" id="import-file" accept="application/json" hidden></label>
+      <label class="check"><input type="checkbox" id="hide-earned"> Hide earned</label>
+      <label class="check"><input type="checkbox" id="spoiler-toggle"> Spoiler shield</label>
+      <button type="button" id="export-btn" class="btn">Export progress</button>
+      <label class="btn file-btn">Import progress<input type="file" id="import-file" accept="application/json,.json" hidden></label>
     </div>
-    <p class="hint">Click a trophy to open its guide. Progress is saved in this browser automatically.</p>
-    <div id="trophy-list"></div>
-    <p id="empty-note" class="muted" hidden>No trophies match the current filters.</p>
+    <div id="detail-slot"></div>
+    <div id="trophy-list" class="trophy-list"></div>
+    <p id="empty-note" hidden>No trophies match these filters. Try clearing the search or choosing a different kind or grade.</p>
   </section>
-
   <section id="view-roadmap" hidden>
-    <h2>Roadmap to the platinum</h2>
-    <p class="lede">Five stages, in order. The order exists for one reason: the missables. Everything tied to a named mission, a stranger finale or a one-time scene is front-loaded into Stage 1, while the story is still open and your chapter saves are fresh. Collectibles and activities can almost all be done in free roam afterwards, and the money trophies are fastest once your income is established — so they come last, just before the platinum itself.</p>
+    <h2 class="section-title">Platinum roadmap</h2>
+    <p class="section-lede">Five stages, in order. Story and missables first, because those are the only trophies the official descriptions put at risk; everything else waits safely in free roam.</p>
     <div id="roadmap-list"></div>
   </section>
-
   <section id="view-about" hidden>
-    <h2>About &amp; sources</h2>
-    <p>Vice Trophy Guide is an offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI. Every trophy is shown with its official name, official description and grade. Every guide is written in our own words for this app — no guide text is copied from any other guide — and every guide cites its sources beside it. The app fetches nothing at run time: your progress lives only in this browser (localStorage), and you can export it to a file and import it back at any time.</p>
-    <h3>Sources</h3>
-    <ul>
-      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" rel="noopener">Exophase — GTA VI trophy page</a> — published the official trophy names, descriptions and grades.</li>
-      <li><a href="https://psnprofiles.com/trophies/grand-theft-auto-vi" rel="noopener">PSNProfiles — GTA VI trophy list</a> — published the official trophy names, descriptions, grades and counts.</li>
-      <li>PlayStation — official trophy list — the trophy list on PlayStation itself, the primary source for names, descriptions and grades.</li>
-    </ul>
-    <h3>How the missable flags were derived</h3>
-    <p>Missable flags are derived from the official descriptions only — nothing else. The rule used throughout: chapter milestones (Complete Chapter 1, and so on) are <em>not</em> flagged, because they trigger automatically as the story advances and cannot be skipped. A trophy <em>is</em> flagged missable when its official description names a specific mission (for example Breakfast Run or The Cartel Heist), a stranger's final mission, a unique target (the unique animal hunted for Bret), or a one-time scene or choice (an unscheduled departure at VCIA, a cocktail on Ocean Beach, choices made). Where a description is deliberately vague, the guide says so plainly and gives a method — keep rotating saves, engage with the content when it is offered — instead of inventing a location or step no source supports. Counts shown in guides come from the official descriptions themselves; where a number appears only in the listing data (for example 42 Shooting Range challenges), the guide attributes it to the listing data.</p>
-    <h3>Spoiler shield</h3>
-    <p>Turn on the Spoiler shield in the Trophies view and every unearned story trophy shows as “Hidden trophy”, with its name and description masked until you earn it. Story and named-mission trophies are also marked hidden in the data, matching how PlayStation hides plot-revealing trophies.</p>
-    <h3>Points</h3>
-    <p>PSN points used in the header: platinum 300, gold 90, silver 30, bronze 15. With 1 platinum, 2 gold, 6 silver and 46 bronze trophies, the full list is worth 1,350 points.</p>
+    <h2 class="section-title">About this guide</h2>
+    <p>Vice Trophy Guide is an offline, unofficial tracker and guide for the 55 PlayStation 5 trophies of Grand Theft Auto VI. Every trophy is listed with its official name, description and grade, a staged platinum roadmap, and the missable trophies flagged from wording in the official descriptions — a finale, a one-time choice, or a partner who must be present.</p>
+    <p>Each trophy carries a short guide written in this guide's own words, with practical steps you can follow in game. Guides cite their sources: the Exophase GTA VI trophy page, the PSNProfiles GTA VI trophy list, and the PlayStation official trophy list. No guide text is copied from those sites; they are named so you can cross-check the trophy names, descriptions and grades yourself.</p>
+    <p>Your progress is stored only in this browser, in local storage — nothing is sent anywhere. Tick trophies off as you earn them and the header tracks your count and trophy points. Use Export progress to download a small JSON backup, and Import progress to restore it on another browser or device.</p>
+    <p>The spoiler shield hides story trophies you have not earned yet: their names and descriptions are masked everywhere, including the roadmap and the detail view, until you tick them off. Earned story trophies are always revealed, so the checklist never hides something you have already seen in game.</p>
+    <p>This is a fan-made tool with an original design. It uses no Rockstar logos or artwork and is not affiliated with Rockstar Games or Take-Two Interactive.</p>
   </section>
 </main>
-
-<footer>Vice Trophy Guide — an unofficial, offline fan guide. Not affiliated with Rockstar Games or PlayStation. No game artwork is used.</footer>
+<footer class="site-footer">Vice Trophy Guide &middot; progress lives in your browser &middot; guides are own-words summaries with cited sources</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
